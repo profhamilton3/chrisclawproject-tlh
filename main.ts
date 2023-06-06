@@ -1,106 +1,46 @@
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P12, joystickbit.ButtonType.up, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.stop, 20)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P14, joystickbit.ButtonType.down, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.rear, 20)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P13, joystickbit.ButtonType.up, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.stop, 20)
-})
-input.onButtonPressed(Button.A, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M2, 10)
-    basic.pause(2000)
-    wuKong.stopMotor(wuKong.MotorList.M2)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P15, joystickbit.ButtonType.down, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.right, 20)
-})
-input.onPinPressed(TouchPin.P2, function () {
-    wuKong.setServoAngle(wuKong.ServoTypeList._360, wuKong.ServoList.S6, -5)
-    basic.pause(1000)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P15, joystickbit.ButtonType.up, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.stop, 20)
+radio.onReceivedNumber(function (receivedNumber) {
+    if (0 == receivedNumber) {
+        wuKong.mecanumStop()
+    } else if (1 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.Front, 100)
+    } else if (2 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.left, 100)
+    } else if (3 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.right, 100)
+    } else if (4 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.rear, 100)
+    } else if (5 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.LeftFront, 100)
+    } else if (6 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.RightFront, 100)
+    } else if (7 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.LeftRear, 100)
+    } else if (8 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.RightRear, 100)
+    } else if (9 == receivedNumber) {
+        wuKong.mecanumRun(wuKong.RunList.stop, 0)
+        wuKong.setServoAngle(wuKong.ServoTypeList._360, wuKong.ServoList.S0, 0)
+        wuKong.setServoAngle(wuKong.ServoTypeList._360, wuKong.ServoList.S0, 41)
+    } else if (10 == receivedNumber) {
+        wuKong.mecanumDrift(wuKong.TurnList.Left)
+    } else if (11 == receivedNumber) {
+        wuKong.mecanumDrift(wuKong.TurnList.Right)
+    } else if (12 == receivedNumber) {
+        wuKong.mecanumSpin(wuKong.TurnList.Left, 75)
+    } else if (13 == receivedNumber) {
+        wuKong.mecanumSpin(wuKong.TurnList.Right, 75)
+    } else {
+        basic.showIcon(IconNames.No)
+    }
 })
 input.onButtonPressed(Button.B, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M2, -10)
-    basic.pause(2000)
-    wuKong.stopMotor(wuKong.MotorList.M2)
-})
-input.onPinPressed(TouchPin.P1, function () {
-    wuKong.setServoAngle(wuKong.ServoTypeList._360, wuKong.ServoList.S6, 5)
-    basic.pause(1000)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P14, joystickbit.ButtonType.up, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.stop, 20)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P13, joystickbit.ButtonType.down, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.Front, 20)
-})
-joystickbit.onButtonEvent(joystickbit.JoystickBitPin.P12, joystickbit.ButtonType.down, function () {
-    wuKong.mecanumWheel(
-    wuKong.ServoList.S1,
-    wuKong.ServoList.S2,
-    wuKong.ServoList.S3,
-    wuKong.ServoList.S4
-    )
-    wuKong.mecanumRun(wuKong.RunList.left, 20)
-})
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M1, 10)
-    basic.pause(1000)
-    wuKong.stopMotor(wuKong.MotorList.M1)
-})
-input.onLogoEvent(TouchButtonEvent.Released, function () {
-    wuKong.setMotorSpeed(wuKong.MotorList.M1, -10)
-    basic.pause(1000)
-    wuKong.stopMotor(wuKong.MotorList.M1)
+    wuKong.stopAllMotor()
+    wuKong.mecanumStop()
+    wuKong.setServoAngle(wuKong.ServoTypeList._360, wuKong.ServoList.S0, 0)
 })
 basic.showIcon(IconNames.Ghost)
-radio.setGroup(102)
-radio.setTransmitPower(7)
+radio.setGroup(3)
+radio.setFrequencyBand(33)
 wuKong.mecanumWheel(
 wuKong.ServoList.S1,
 wuKong.ServoList.S2,
